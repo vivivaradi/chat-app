@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 
 function User(props) {
@@ -8,8 +9,16 @@ function User(props) {
     
     return(
         <div className="userPreview">
-            {profilePic}
-            {name}
+            <div className="profilePic">
+                {profilePic}
+            </div>
+            <div className="userName">
+                {name}
+            </div>
+            <div className="navigation">
+                
+                <Link to='/profile'>View Profile</Link>
+            </div>
         </div>
     );
 }

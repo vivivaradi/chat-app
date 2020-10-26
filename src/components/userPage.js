@@ -1,14 +1,23 @@
 import React, { useState } from 'react'
 import User from './userPreview.js'
 
-function UserPage() {
-    const [ userList, setUserList ] = useState()
+function UserPage(props) {
+    const [ friendsList, setFriendsList ] = useState()
 
     return(
-        <div>
-            <ul>
-             
-            </ul>
+        <div className="userPage">
+            
+            <div className="friendList">
+                <ul>
+                    {friendsList.map(user => (
+                        <li key={user.id}>
+                            {user.name}
+                        </li>
+                    ))
+                    }
+                </ul>
+            </div>
+            
         </div>
     )
 }
