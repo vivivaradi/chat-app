@@ -1,62 +1,64 @@
-import Message from './message'
 
 const Bob = {
-    userid: "2",
+    userid: 2,
     name: "Bob",
     friends: []
 };
 
 const Alice = {
-    userid: "1",
+    userid: 1,
     name: "Alice",
     friends: [Bob]
 };
 
 const Chat = {
-    chatid: "1",
+    chatid: 1,
     participants: [ Alice, Bob ],
     messages: [{
-        messageid: "1",
-        sender: "Alice",
-        content: "Hello!"
+        messageid: 1,
+        sender: Alice,
+        content: "Hello!",
+        time: "2020.11.04.19:00"
     },
     {
-        messageid: "2",
-        sender: "Bob",
-        content: "Hi!"
+        messageid: 2,
+        sender: Bob,
+        content: "Hi!",
+        time: "2020.11.04.19:02"
     }]
 };
 
-class Data {
-
-    getMessages(){
+    function getChat(){
         return Chat
     };
 
-    addMessage(chatid, sender, message){
+    function addMessage(chatid, sender, message){
         Chat.messages.push({
             messageid: "3",
             sender: sender,
             content: message
         })
+        console.log(`Message added: ${message}`)
     };
 
-    getUserInfo(id){
+    function getUserInfo(id){
         if (id === 1)
             return Alice
         else 
             return Bob
     };
 
-    getCurrentUser(){
+    function getCurrentUser(){
         return Alice
     };
 
-    getFriends() {
+    function getFriends() {
         return Alice.friends
     };
-}
 
-export default Data
+    function getParticipants(currentUser){
+        return Chat.participants.filter(function(value, index, arr){ return value.userid != currentUser.userid })
+    }
 
+export {getChat, getUserInfo, getCurrentUser, getFriends, addMessage, getParticipants};
     

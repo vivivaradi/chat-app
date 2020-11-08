@@ -6,14 +6,14 @@ import Message from './components/message'
 import {Route, Switch} from 'react-router-dom'
 import Main from './components/mainPage'
 import NotFound from './components/notFound'
-import Data from './API/data'
+import * as Data from './API/data'
 
 function App() {
-  const [currentUser, setCurrentUser] = useState()
+  const [currentUser, setCurrentUser] = useState({})
 
   useEffect(() => {
     const result = Data.getCurrentUser()
-    setCurrentUser(result.data)
+    setCurrentUser(result)
   }, [])
 
   return (
@@ -22,7 +22,7 @@ function App() {
         <Route path='/'>
           <Main currentUser={currentUser}/>
         </Route>
-        <Route path='/user'>
+        <Route path='/profile'>
             <UserPanel currentUser={currentUser}/>
         </Route>
         <Route component={NotFound}/>

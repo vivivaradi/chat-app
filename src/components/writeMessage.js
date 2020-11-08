@@ -1,5 +1,8 @@
-import React, {useState} from 'react'
-import Data from '../API/data'
+import React, {useState} from 'react';
+import * as Data from '../API/data';
+import Button from 'react-bootstrap/Button';
+import InputGroup from 'react-bootstrap/InputGroup';
+import { FormControl } from 'react-bootstrap';
 
 function WriteMessage(props){
 
@@ -15,10 +18,12 @@ function WriteMessage(props){
 
     return(
         <div className="writeMessage">
-            <form onSubmit={handleSend}>
-                <input type="text" value={message} onChange={handleChange} />
-                <input type="submit" value="Send" />
-            </form>
+            <InputGroup size="sm" onSubmit={handleSend}>
+                <FormControl placeholder="Type your message here" type="text" value={message} onChange={handleChange} />
+                <InputGroup.Append>
+                    <Button type="submit" value="Send">Send</Button>
+                </InputGroup.Append>
+            </InputGroup>
             
         </div>
     )

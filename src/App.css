@@ -1,38 +1,110 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
 .App {
   text-align: center;
+  height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.mainPage {
+  height: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.infopanel {
+  width: 25%;
+  
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.userPreview {
+  float: left;
+}
+
+.friendList {
+  float: left;
+}
+
+.chat {
+  height: 100%;
+  width: 75%;
+  float: right;
+  border: lightblue;
+  border-style: hidden hidden hidden solid;
+  border-width: medium;
+}
+
+.chat-header {
+  height: 10%;
+  text-align: center;
+  border-bottom: lightblue;
+  border-width: medium;
+  border-style: hidden hidden solid hidden;
+}
+
+ChatHeader {
+  vertical-align: middle;
+}
+
+.messageList {
+  height: 82%;
+  padding-top: 10px;
+}
+
+.sendForm {
+  height: 8%;
+}
+
+.message-container {
+  width: auto;
+  height: auto;
+  padding: 10px;
+}
+
+
+.my-message {
+  padding: 10px;
+  float: right;
+  width: 65%;
+}
+
+.other-message {
+  padding: 10px;
+  float: left;
+  width: 65%;
+}
+
+.message-infos {
+  text-align: left;
+  font-size: small;
+}
+
+.my-content {
+  padding: 10px;
+  text-align: left;
   color: white;
+  border-radius: 20px;
+  background-color: royalblue;
+  width: fit-content;
+  float:right;
 }
 
-.App-link {
-  color: #61dafb;
+.other-content {
+  padding: 10px;
+  text-align: left;
+  border-radius: 20px;
+  background-color: powderblue;
+  width: fit-content;
+  float: left;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.writeMessage {
+  padding: 10px;
 }

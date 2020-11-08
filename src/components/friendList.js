@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import FriendPreview from './friendPreview'
-import Data from '../API/data'
+import * as Data from '../API/data'
 
 function FriendList(){
-    const [listOfFriends, setListOfFriends] = useState();
+    const [listOfFriends, setListOfFriends] = useState([]);
 
     useEffect(() => {
         const friendList = Data.getFriends();
