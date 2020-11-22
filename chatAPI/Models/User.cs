@@ -7,5 +7,7 @@ namespace ChatAPI.Models
 {
     public class User
     {
+        public long Id;
+        public string Name;
     }
 }

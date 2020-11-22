@@ -29,7 +29,7 @@ namespace ChatAPI
         {
             services.AddControllers();
 
-            services.AddDbContext<ApiContext>(opt => opt.UseInMemoryDatabase("ChatDB"))
+            services.AddDbContext<ApiContext>(opt => opt.UseInMemoryDatabase("ChatDB"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
