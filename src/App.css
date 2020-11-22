@@ -26,10 +26,12 @@ body {
 
 .userPreview {
   float: left;
+  width: auto;
 }
 
 .friendList {
   float: left;
+  width: auto;
 }
 
 .chat {
@@ -47,10 +49,6 @@ body {
   border-bottom: lightblue;
   border-width: medium;
   border-style: hidden hidden solid hidden;
-}
-
-ChatHeader {
-  vertical-align: middle;
 }
 
 .messageList {

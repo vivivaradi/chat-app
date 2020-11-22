@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Documents\\Vivi\\egyetem\\7_semester\\Temalab\\chat-app\\chatAPI\\chatAPI.csproj": {}
+    "D:\\Documents\\Vivi\\egyetem\\7_semester\\Temalab\\chat-app\\ChatAPI\\ChatAPI.csproj": {}
   },
   "projects": {
-    "D:\\Documents\\Vivi\\egyetem\\7_semester\\Temalab\\chat-app\\chatAPI\\chatAPI.csproj": {
+    "D:\\Documents\\Vivi\\egyetem\\7_semester\\Temalab\\chat-app\\ChatAPI\\ChatAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Documents\\Vivi\\egyetem\\7_semester\\Temalab\\chat-app\\chatAPI\\chatAPI.csproj",
-        "projectName": "chatAPI",
-        "projectPath": "D:\\Documents\\Vivi\\egyetem\\7_semester\\Temalab\\chat-app\\chatAPI\\chatAPI.csproj",
+        "projectUniqueName": "D:\\Documents\\Vivi\\egyetem\\7_semester\\Temalab\\chat-app\\ChatAPI\\ChatAPI.csproj",
+        "projectName": "ChatAPI",
+        "projectPath": "D:\\Documents\\Vivi\\egyetem\\7_semester\\Temalab\\chat-app\\ChatAPI\\ChatAPI.csproj",
         "packagesPath": "C:\\Users\\Vivi\\.nuget\\packages\\",
-        "outputPath": "D:\\Documents\\Vivi\\egyetem\\7_semester\\Temalab\\chat-app\\chatAPI\\obj\\",
+        "outputPath": "D:\\Documents\\Vivi\\egyetem\\7_semester\\Temalab\\chat-app\\ChatAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Vivi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -37,16 +37,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "dependencies": {
-            "Microsoft.EntityFrameworkCore.InMemory": {
-              "target": "Package",
-              "version": "[*, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[3.1.9, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",

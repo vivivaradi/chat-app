@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     const result = Data.getCurrentUser()
     setCurrentUser(result)
-  }, [])
+  }, [currentUser])
 
   return (
     <div className="App">

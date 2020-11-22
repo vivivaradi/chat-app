@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 function User(props) {
 
-    const [ name, setName] = useState(props.name);
-    const [ profilePic, setProfilePic] = useState('itt lesz a kep');
+    const [ name, setName] = useState(props.currentUser.name);
+    const [ profilePic, setProfilePic] = useState(props.currentUser.pic);
     
     return(
         <div className="userPreview">

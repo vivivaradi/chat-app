@@ -8,7 +8,8 @@ const Bob = {
 const Alice = {
     userid: 1,
     name: "Alice",
-    friends: [Bob]
+    friends: [Bob],
+    pic: 'mukodj geci'
 };
 
 const Chat = {
