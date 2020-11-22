@@ -7,8 +7,8 @@ namespace ChatAPI.Models
 {
     public class Chat
     {
-        public long Id;
-        public List<User> Participants;
-        public List<Message> Messages;
+        public long Id { get; set; }
+        public List<User> Participants { get; set; }
+        public List<Message> Messages { get; set;  }
     }
 }

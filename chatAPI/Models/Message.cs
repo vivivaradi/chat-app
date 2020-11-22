@@ -7,9 +7,9 @@ namespace ChatAPI.Models
 {
     public class Message
     {
-        public long Id;
-        public User Sender;
-        public string Content;
-        public DateTime SentAt;
+        public long Id { get; set; }
+        public User Sender { get; set; }
+        public string Content { get; set; }
+        public DateTime SentAt { get; set; }
     }
 }
