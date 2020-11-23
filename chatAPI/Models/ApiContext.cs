@@ -8,6 +8,10 @@ namespace ChatAPI.Models
 {
     public class ApiContext: DbContext
     {
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Data Source=.\sqlexpress;Initial Catalog=master;Integrated Security=True");
+        }
         public ApiContext(DbContextOptions<ApiContext> options)
             :base(options)
         {
