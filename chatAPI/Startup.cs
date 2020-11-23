@@ -30,6 +30,15 @@ namespace ChatAPI
             services.AddControllers();
 
             services.AddDbContext<ApiContext>(opt => opt.UseInMemoryDatabase("ChatDB"));
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .WithOrigins("http://localhost:3000")
+                        .AllowCredentials());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,6 +52,7 @@ namespace ChatAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors("CorsPolicy");
 
             app.UseAuthorization();
 
