@@ -29,7 +29,7 @@ namespace ChatAPI
         {
             services.AddControllers();
 
-            services.AddDbContext<ApiContext>(opt => opt.UseInMemoryDatabase("ChatDB"));
+            services.AddDbContext<ApiContext>(opt => opt.UseSqlServer(@"Data Source=.\sqlexpress;Initial Catalog=ChatDB;Integrated Security=True"));
 
             services.AddCors(options =>
             {
