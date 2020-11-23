@@ -9,6 +9,7 @@ namespace ChatAPI.Models
     {
         public int MessageId { get; set; }
         public User Sender { get; set; }
+        public Chat Chat { get; set; }
         public string Content { get; set; }
         public DateTime SentAt { get; set; }
     }

@@ -19,7 +19,7 @@ function App() {
       })
 
       setCurrentUser(result.data);
-    }
+    };
 
     fetchData();
   }, [currentUser])
