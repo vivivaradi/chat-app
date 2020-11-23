@@ -10,7 +10,7 @@ namespace ChatAPI.Models
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=.\sqlexpress;Initial Catalog=master;Integrated Security=True");
+            optionsBuilder.UseSqlServer(@"Data Source=.\sqlexpress;Initial Catalog=ChatDB;Integrated Security=True");
         }
         public ApiContext(DbContextOptions<ApiContext> options)
             :base(options)
