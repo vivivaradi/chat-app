@@ -11,48 +11,48 @@ namespace ChatAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ChatsController : ControllerBase
+    public class UsersController : ControllerBase
     {
         private readonly ApiContext _context;
 
-        public ChatsController(ApiContext context)
+        public UsersController(ApiContext context)
         {
             _context = context;
         }
 
-        // GET: api/Chats
+        // GET: api/Users
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Chat>>> GetChats()
+        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
-            return await _context.Chats.ToListAsync();
+            return await _context.Users.ToListAsync();
         }
 
-        // GET: api/Chats/5
+        // GET: api/Users/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Chat>> GetChat(int id)
+        public async Task<ActionResult<User>> GetUser(int id)
         {
-            var chat = await _context.Chats.FindAsync(id);
+            var user = await _context.Users.FindAsync(id);
 
-            if (chat == null)
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return chat;
+            return user;
         }
 
-        // PUT: api/Chats/5
+        // PUT: api/Users/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutChat(int id, Chat chat)
+        public async Task<IActionResult> PutUser(int id, User user)
         {
-            if (id != chat.ChatId)
+            if (id != user.UserId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(chat).State = EntityState.Modified;
+            _context.Entry(user).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace ChatAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ChatExists(id))
+                if (!UserExists(id))
                 {
                     return NotFound();
                 }
@@ -73,37 +73,37 @@ namespace ChatAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Chats
+        // POST: api/Users
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Chat>> PostChat(Chat chat)
+        public async Task<ActionResult<User>> PostUser(User user)
         {
-            _context.Chats.Add(chat);
+            _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetChat", new { id = chat.ChatId }, chat);
+            return CreatedAtAction("GetUser", new { id = user.UserId }, user);
         }
 
-        // DELETE: api/Chats/5
+        // DELETE: api/Users/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Chat>> DeleteChat(int id)
+        public async Task<ActionResult<User>> DeleteUser(int id)
         {
-            var chat = await _context.Chats.FindAsync(id);
-            if (chat == null)
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
             {
                 return NotFound();
             }
 
-            _context.Chats.Remove(chat);
+            _context.Users.Remove(user);
             await _context.SaveChangesAsync();
 
-            return chat;
+            return user;
         }
 
-        private bool ChatExists(int id)
+        private bool UserExists(int id)
         {
-            return _context.Chats.Any(e => e.ChatId == id);
+            return _context.Users.Any(e => e.UserId == id);
         }
     }
 }

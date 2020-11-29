@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+
 
 
 namespace ChatAPI.Models
 {
     public class Chat
     {
+        [Key]
         public int ChatId { get; set; }
-        public string Name { get; set; }
-        public List<User> Participants { get; set; }
-        public List<Message> Messages { get; set;  }
+        [Required]
+        public DateTime TimeOfCreation { get; set; }
+        public List<ChatUser> Participants { get; set; }
+        public List<Message> Messages { get; set; }
     }
 }

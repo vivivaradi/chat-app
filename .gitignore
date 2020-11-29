@@ -1,6 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
+/ChatAPI/bin
+/ChatAPI/obj
 /node_modules
 /.pnp
 .pnp.js
