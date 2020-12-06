@@ -37,11 +37,11 @@ function Chat(props){
             </div>
             <div className="messageList">
                     {listOfMessages.map(message =>
-                            <Message message={message} currentUser={props.currentUser}/>
+                        <Message message={message} currentUser={props.currentUser}/>
                     )}
             </div>
             <div className="sendForm">
-                <WriteMessage chatid={chatId} />
+                <WriteMessage chatId={chatId} currentUser={props.currentUser}/>
             </div>
         </div>
     )

@@ -8,30 +8,18 @@ import Main from './components/mainPage'
 import NotFound from './components/notFound'
 import * as Data from './API/data'
 import axios from 'axios';
+import Login from './components/login';
 
 function App() {
-  const [currentUser, setCurrentUser] = useState({})
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios.get('https://localhost:44395/api/users/1', {
-        "headers" : {"Access-Control-Allow-Origin": "http://localhost:3000"}
-      })
-
-      setCurrentUser(result.data);
-    };
-
-    fetchData();
-  }, [currentUser])
 
   return (
     <div className="App">
       <Switch>
-        <Route path='/'>
-          <Main currentUser={currentUser}/>
+        <Route path='/login'>
+          <Login />
         </Route>
-        <Route path='/profile'>
-            <UserPanel currentUser={currentUser}/>
+        <Route path='/:id'>
+          <Main/>
         </Route>
         <Route component={NotFound}/>
       </Switch>

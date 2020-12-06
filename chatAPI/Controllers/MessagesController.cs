@@ -65,6 +65,7 @@ namespace ChatAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Message>> PostMessage(Message message)
         {
+            message.SentAt = new DateTime();
             _context.Messages.Add(message);
             await _context.SaveChangesAsync();
 
