@@ -12,7 +12,7 @@ namespace ChatAPI.Models
         public int ChatId { get; set; }
         [Required]
         public DateTime TimeOfCreation { get; set; }
-        public List<ChatUser> Participants { get; set; }
-        public List<Message> Messages { get; set; }
+        public ICollection<ChatUser> Participants { get; set; }
+        public ICollection<Message> Messages { get; set; }
     }
 }

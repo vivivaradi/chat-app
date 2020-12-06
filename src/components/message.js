@@ -2,15 +2,17 @@ import React, {useState, useEffect} from 'react'
 import User from './userPreview'
 import Card from 'react-bootstrap/Card'
 import Badge from 'react-bootstrap/Badge';
+import axios from 'axios'
 
 function Message(props) {
     const [content, setContent] = useState(props.message.content);
-    const [sender, setSender] = useState(props.message.sender);
-    const [time, setTime] = useState(props.message.time);
+    const [senderId, setSenderId] = useState(props.message.senderId);
+    const [time, setTime] = useState(props.message.sentAt);
+    const [senderName, setSenderName] = useState(props.message.sender.name);
     let classname = ""
     let contentclass = ""
 
-    if (sender.userid===props.currentUser.userid){
+    if (senderId===props.currentUser.userId){
         classname = "my-message"
         contentclass = "my-content"
     } 
@@ -20,9 +22,9 @@ function Message(props) {
     }
 
     function renderInfos(){
-        if (sender.userid != props.currentUser.userid){
+        if (senderId !== props.currentUser.userId){
             return(<div className="message-infos">
-                {sender.name} ({time})
+                {senderName} ({time})
             </div>)
         }
     }

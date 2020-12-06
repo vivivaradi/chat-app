@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get('https://localhost:44318/api/users/1', {
+      const result = await axios.get('https://localhost:44395/api/users/1', {
         "headers" : {"Access-Control-Allow-Origin": "http://localhost:3000"}
       })
 

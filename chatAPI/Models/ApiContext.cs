@@ -22,5 +22,12 @@ namespace ChatAPI.Models
         public DbSet<Chat> Chats { get; set; }
 
         public DbSet<Message> Messages { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<ChatUser>().HasKey(cu => new { cu.ChatId, cu.UserId });
+            builder.Entity<ChatUser>().HasOne(cu => cu.Chat).WithMany(cu => cu.Participants).HasForeignKey(cu => cu.ChatId);
+            builder.Entity<ChatUser>().HasOne(cu => cu.User).WithMany(cu => cu.Chats).HasForeignKey(cu => cu.UserId);
+        }
     }
 }

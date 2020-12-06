@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using ChatAPI.Models;
+using Newtonsoft.Json;
 
 namespace ChatAPI
 {
@@ -21,6 +22,11 @@ namespace ChatAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddMvc().AddNewtonsoftJson(o =>
+            {
+                o.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            });
 
             services.AddDbContext<ApiContext>(opt => opt.UseSqlServer(@"Data Source=.\sqlexpress;Initial Catalog=ChatDB;Integrated Security=True"));
 
@@ -45,6 +51,8 @@ namespace ChatAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("CorsPolicy");
 
             app.UseAuthorization();
 

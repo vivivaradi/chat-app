@@ -10,6 +10,6 @@ namespace ChatAPI.Models
         [Required]
         [MaxLength(100)]
         public string Name { get; set; }
-        public List<ChatUser> Chats { get; set; }
+        public ICollection<ChatUser> Chats { get; set; }
     }
 }

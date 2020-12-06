@@ -3,27 +3,33 @@ import WriteMessage from './writeMessage'
 import * as Data from '../API/data'
 import Message from './message';
 import ChatHeader from './chatHeader'
+import axios from 'axios'
 
 function Chat(props){
     const [listOfMessages, setListOfMessages] = useState([]);
-    const [chatId, setChatId] = useState("");
+    const [chatId, setChatId] = useState(props.currentChat.chatId);
     const [participants, setParticipants] = useState([])
 
     useEffect(() => {
-        const chat = Data.getChat()
-        setListOfMessages(chat.messages)
-        setChatId(chat.chatId)
-        setParticipants(chat.getParticipants)
-    }, [listOfMessages])
+        const fetchData = async () => {
+            const result = await axios.get('https://localhost:44395/api/messages/1', {
+                "headers" : {"Access-Control-Allow-Origin": "http://localhost:3000"}
+              });
 
-    let names = ["Bob"]
-/*
+            setListOfMessages(result.data);
+        };
+
+        fetchData();
+    }, [chatId])
+
+    let names = []
+
     function putName(item, index){
         names.push(item.name)
     }
 
     participants.forEach(putName)
-*/
+
     return(
         <div className="chat">
             <div className="chat-header">
