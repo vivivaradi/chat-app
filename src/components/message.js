@@ -1,8 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import User from './userPreview'
-import Card from 'react-bootstrap/Card'
-import Badge from 'react-bootstrap/Badge';
-import axios from 'axios'
 
 function Message(props) {
     const [content, setContent] = useState(props.message.content);

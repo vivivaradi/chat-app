@@ -1,14 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import FriendPreview from './friendPreview'
-import * as Data from '../API/data'
 
 function FriendList(){
     const [listOfFriends, setListOfFriends] = useState([]);
 
-    useEffect(() => {
-        const friendList = Data.getFriends();
-        setListOfFriends(friendList);
-    }, []);
 
     return(
         <div className="friendList">

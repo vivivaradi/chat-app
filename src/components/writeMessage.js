@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import * as Data from '../API/data';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { Form, FormControl } from 'react-bootstrap';

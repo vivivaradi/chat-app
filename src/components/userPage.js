@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import User from './userPreview.js'
 
 function UserPage(props) {
     const [ friendsList, setFriendsList ] = useState([])

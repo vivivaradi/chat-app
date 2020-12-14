@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import WriteMessage from './writeMessage'
-import * as Data from '../API/data'
 import Message from './message';
 import ChatHeader from './chatHeader'
 import axios from 'axios'
