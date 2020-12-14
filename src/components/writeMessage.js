@@ -18,11 +18,14 @@ function WriteMessage(props){
             "chatId": props.chatId,
             "content": content
         }
-        const res = axios.post('https://localhost:44395/api/messages/', body,
+        const sendMessage = async () => {
+            const res = await axios.post('https://localhost:44395/api/messages/', body,
             {
                 "headers" : {"Access-Control-Allow-Origin": "http://localhost:3000"}
             });
-
+        }
+        
+        sendMessage();
         setContent("");
     }
 
@@ -34,8 +37,7 @@ function WriteMessage(props){
                         <Button type="submit" value="Send" onClick={handleSend}>Send</Button>
                     </InputGroup.Append>
                 </InputGroup>
-            
-            
+                  
         </div>
     )
 }
