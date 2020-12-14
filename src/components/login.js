@@ -7,12 +7,16 @@ function Login() {
     return(
         <div className="login">
             <p>Who are you?</p>
-            <Button>
-                <Link to='/1'>Alice</Link>
-            </Button>
-            <Button>
-                <Link to='/2'>Bob</Link>
-            </Button>
+                <ul>
+                    <li>
+                    <Link to='/users/1'>Alice</Link>
+                    </li>
+                    <li>
+                    <Link to='/users/2'>Bob</Link>
+                    </li>
+                </ul>
+                
+                
         </div>
     )
 }

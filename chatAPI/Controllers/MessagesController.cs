@@ -20,6 +20,12 @@ namespace ChatAPI.Controllers
             _context = context;
         }
 
+        [HttpGet("/message/{id}")]
+        public async Task<ActionResult<Message>> GetMessage(int id)
+        {
+            return await _context.Messages.Where(m => m.MessageId == id).FirstOrDefaultAsync();
+        }
+
         // GET: api/Messages/5
         [HttpGet("{id}")]
         public async Task<ActionResult<IEnumerable<Message>>> GetMessagesByChat(int id)
@@ -65,7 +71,7 @@ namespace ChatAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Message>> PostMessage(Message message)
         {
-            message.SentAt = new DateTime();
+            message.SentAt = DateTime.Now;
             _context.Messages.Add(message);
             await _context.SaveChangesAsync();
 

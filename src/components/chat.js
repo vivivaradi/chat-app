@@ -4,11 +4,11 @@ import * as Data from '../API/data'
 import Message from './message';
 import ChatHeader from './chatHeader'
 import axios from 'axios'
+import useInterval from './polling'
 
 function Chat(props){
     const [listOfMessages, setListOfMessages] = useState([]);
-    const [chatId, setChatId] = useState(props.currentChat.chatId);
-    const [participants, setParticipants] = useState([])
+    let names = []
 
     useEffect(() => {
         const fetchData = async () => {
@@ -16,19 +16,40 @@ function Chat(props){
                 "headers" : {"Access-Control-Allow-Origin": "http://localhost:3000"}
               });
 
+
             setListOfMessages(result.data);
+            
         };
 
         fetchData();
-    }, [chatId])
+    }, [])
 
-    let names = []
+    useInterval(() => {
+        const pollBackend = async () => {
+            const result = await axios.get('https://localhost:44395/api/messages/1', {
+                "headers" : {"Access-Control-Allow-Origin": "http://localhost:3000"}
+              });
+              setListOfMessages(result.data);
+        }
 
-    function putName(item, index){
-        names.push(item.name)
+        pollBackend();
+    }, 3000
+
+    );
+
+    function getUser(item){
+        const url = `https://localhost:44395/api/users/${item}`
+        const fetchUser = async () => {
+            const result = await axios.get(url, {
+                "headers" : {"Access-Control-Allow-Origin": "http://localhost:3000"}
+            });
+            if (result.data.userId !== props.currentUser.userId)
+                names.push(result.data.name)
+            console.log(names)
+        }
+        fetchUser();
     }
 
-    participants.forEach(putName)
 
     return(
         <div className="chat">
@@ -37,11 +58,11 @@ function Chat(props){
             </div>
             <div className="messageList">
                     {listOfMessages.map(message =>
-                        <Message message={message} currentUser={props.currentUser}/>
+                        <Message key={message.messageId} message={message} currentUser={props.currentUser}/>
                     )}
             </div>
             <div className="sendForm">
-                <WriteMessage chatId={chatId} currentUser={props.currentUser}/>
+                <WriteMessage chatId={props.currentChat.chatId} currentUser={props.currentUser}/>
             </div>
         </div>
     )

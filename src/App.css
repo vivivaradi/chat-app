@@ -54,6 +54,7 @@ body {
 .messageList {
   height: 82%;
   padding-top: 10px;
+  overflow: scroll;
 }
 
 .sendForm {

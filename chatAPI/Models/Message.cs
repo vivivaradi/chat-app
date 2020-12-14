@@ -10,7 +10,6 @@ namespace ChatAPI.Models
         public int MessageId { get; set; }
         [ForeignKey("User")]
         public int SenderId { get; set; }
-        [Required]
         public User Sender { get; set; }
         [Required]
         public int ChatId { get; set; }

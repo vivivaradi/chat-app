@@ -6,8 +6,6 @@ import Message from './components/message'
 import {Route, Switch} from 'react-router-dom'
 import Main from './components/mainPage'
 import NotFound from './components/notFound'
-import * as Data from './API/data'
-import axios from 'axios';
 import Login from './components/login';
 
 function App() {
@@ -18,7 +16,7 @@ function App() {
         <Route path='/login'>
           <Login />
         </Route>
-        <Route path='/:id'>
+        <Route path='/users/:id'>
           <Main/>
         </Route>
         <Route component={NotFound}/>

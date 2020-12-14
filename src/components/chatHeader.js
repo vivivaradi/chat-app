@@ -13,8 +13,9 @@ function ChatHeader(props){
             namestring = namestring.concat(n);
         }
         len--;
-
+        console.log(namestring)
     }
+
     
     return(
         namestring
